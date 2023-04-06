@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 //Add fontawesome imports for the search icon
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {ServiceNameService} from "../service-name.service";
 
 
 @Component({
@@ -12,7 +13,10 @@ export class SearchComponent {
 
   //Add fontawesome icon to the component
   faSearch = faSearch;
-
+//wrapper function for orderFunction
+  order(event : Event){
+    ServiceNameService.orderFunction(event);
+  }
   constructor() { }
 
   ngOnInit() {
@@ -79,16 +83,30 @@ export class SearchComponent {
        <h3 style="font-family: 'Lato', sans-serif;">About</h3>
         <p style="font-family: 'Lato', sans-serif;">${restaurant.about}</p>
         </div>
+
+        <div  class="mb-3 mt-4 ml-4">
+            <button class="btn btn-dark" >Order Now</button>
+          </div>
       </div>
       `;
       if (cards != null)
 
       cards.appendChild(card);
+
+      //create a button and add it to the card to order food
+      let orderButton = card.querySelector('button');
+      orderButton?.addEventListener('click', (event: Event) => {
+        this.order(event)
+
+      } );
     });
 
 
 
 
+
+
   }
+
 
 }

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { ServiceNameService } from '../service-name.service';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [ServiceNameService]
 })
 export class HomeComponent {
   //Get restuarants from local storage and parse them into an array
@@ -13,7 +15,7 @@ export class HomeComponent {
 
 
 
-  constructor() {
+  constructor(private orderFunction: ServiceNameService) {
     let restaurants = [
       {
         "index" : 0,
@@ -113,14 +115,12 @@ export class HomeComponent {
     window.location.href = "/about";
   }
 
-  orderFunction(event: Event){
-    //In order to stop the setRestaurant function from firing, we need to stop the event from bubbling up
-    //pretty proud to have thought of this from IMY220 :)
-    event.stopPropagation();
-
-    //TODO: Add functionality to order food
-    console.log("order");
+  //wrapper function for orderFunction
+  order(event : Event){
+    ServiceNameService.orderFunction(event);
   }
+
+
 
 
 
