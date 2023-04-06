@@ -14,8 +14,8 @@ export class SearchComponent {
   //Add fontawesome icon to the component
   faSearch = faSearch;
 //wrapper function for orderFunction
-  order(event : Event){
-    ServiceNameService.orderFunction(event);
+  order(event : Event, restaurant: any){
+    ServiceNameService.orderFunction(event,restaurant);
   }
   constructor() { }
 
@@ -31,7 +31,7 @@ export class SearchComponent {
     // create a function that creates a card for each restaurant in the search results
     this.createCards(searchResults);
   }
-
+//This function creates cards for restaurants
   createCards(restaurants: any) {
     let cards = document.getElementById('cards');
     if (cards != null)
@@ -96,7 +96,7 @@ export class SearchComponent {
       //create a button and add it to the card to order food
       let orderButton = card.querySelector('button');
       orderButton?.addEventListener('click', (event: Event) => {
-        this.order(event)
+        this.order(event, restaurant)
 
       } );
     });

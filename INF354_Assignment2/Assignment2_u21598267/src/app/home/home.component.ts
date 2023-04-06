@@ -116,8 +116,8 @@ export class HomeComponent {
   }
 
   //wrapper function for orderFunction
-  order(event : Event){
-    ServiceNameService.orderFunction(event);
+  order(event : Event,restaurant : any){
+    ServiceNameService.orderFunction(event,restaurant);
   }
 
 

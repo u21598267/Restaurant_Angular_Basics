@@ -8,13 +8,15 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
