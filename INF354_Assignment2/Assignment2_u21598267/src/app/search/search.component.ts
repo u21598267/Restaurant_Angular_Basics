@@ -77,7 +77,7 @@ export class SearchComponent {
 
         <div class="col-9 ml-0" >
        <h3 >About</h3>
-        <p style="font-family: 'Lato', sans-serif;">${restaurant.about}</p>
+        <p >${restaurant.about}</p>
         </div>
       </div>
       `;
