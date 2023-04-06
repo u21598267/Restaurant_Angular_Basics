@@ -1,1 +1,21 @@
-<p>search works!</p>
+<!-- create a bootstrap search input placed in a card-->
+<div class="row w-100">
+  <div class="col-12">
+<div class="card">
+  <div class="card-body">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" #userinput value="New Retro">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" (click)="searchRestaurants(userinput.value)">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<div id='cards' class="offset-0">
+
+</div>
