@@ -18,16 +18,85 @@
     </div>
   </div>
   <!-- end of image-grid row 1 -->
-</div>
 
-<!--create a bootstrap styled heading-->
-<h1 class="text-center mt-5">Cart</h1>
+  <!--create a bootstrap styled heading-->
+  <h1 class="text-center mt-5">Cart</h1>
 
-<!-- create a bootstrap styled card for each value in orders making use of ngFor -->
-<div class="container-fluid">
-  <div class="cards" id="cards" >
+  <app-modal *ngIf="showModal" (close)="closeModal()"></app-modal>
 
 
-
+  <div class="row container-fluid mb-2 w-100">
+    <button (click)="showInput = !showInput" class="btn btn-dark">Add Delivery Note</button>
+    <input *ngIf="showInput" [(ngModel)]="inputInstructions" type="text" placeholder="Any Instructions? We Will Try Our Best" class="ml-3" style="width: 80%">
   </div>
+
+  <div class="row container-fluid mb-2 w-100">
+    <button  class="btn btn-dark">Delivery Address</button>
+    <input  type="text" placeholder="Street number, street name" class="ml-3" style="width: 80%">
+  </div>
+
+
+  <!-- create a bootstrap styled card for each value in orders making use of ngFor -->
+  <div class="container-fluid">
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <!-- Create a bootstrap card in a row.  -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Row for total price -->
+         <div class="row">
+
+           <div class="col-9">
+             <h5 class="card-title">Item Total</h5>
+           </div>
+
+           <div class="col-3 center">
+              <h5 class="card-title"> {{totalPrice | currency}}</h5>
+           </div>
+
+         </div>
+          <!-- End of row for total price -->
+
+          <!-- Row for Delivery Fee -->
+          <div class="row">
+
+            <div class="col-9">
+              <h5 class="card-title">Delivery Total</h5>
+            </div>
+
+            <div class="col-3 center">
+              <h5 class="card-title"> $25.00</h5>
+            </div>
+
+          </div>
+          <!-- End of row for Delivery Fee -->
+
+          <!-- Row for Grand Total -->
+          <div class="row">
+
+            <div class="col-9">
+              <h5 class="card-title">Grand Total</h5>
+            </div>
+
+            <div class="col-3 center">
+              <h5 class="card-title"> {{totalPrice+25 | currency}}</h5>
+              <button class="btn btn-success" (click)="openModal()">Make Payment</button>
+
+            </div>
+
+
+
+          </div>
+          <!-- End of row for Grand Total -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

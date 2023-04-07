@@ -9,6 +9,8 @@ import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { CartComponent } from './cart/cart.component';
+import { ModalComponent } from './modal/modal.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,14 +18,16 @@ import { CartComponent } from './cart/cart.component';
     HomeComponent,
     AboutComponent,
     SearchComponent,
-    CartComponent
+    CartComponent,
+    ModalComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    FontAwesomeModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatToolbarModule,
+        FontAwesomeModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router, NavigationEnd} from "@angular/router";
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-cart',
@@ -6,14 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  constructor() {
+  inputInstructions = '';
+  totalPrice = 0;
+  showInput = false;
+  constructor(private router: Router) {
+    let orders = localStorage.getItem('orders');
+    orders = JSON.parse(orders ?? '[]');
+
+      this.router.events.subscribe((evt) => {
+        if (evt instanceof NavigationEnd) {
+          this.calculateTotal(orders);
+        }
+
+      });
   }
 
   ngOnInit() {
-
-  let orders = JSON.parse(localStorage.getItem('orders') ?? '[]');
-console.log(orders);
-
 
   }
   //get the order from local storage
@@ -79,6 +89,30 @@ console.log(orders);
       `;
     } );
 
+  }
+
+  calculateTotal(orders: any){
+    let total = 0;
+    for(let i = 0; i < orders.length; i++){
+      total += orders[i].price;
+    }
+   this.totalPrice = total;
+  }
+
+  //Code for the modal
+  showModal = false;
+
+
+  openModal() {
+    this.showModal = true;
+  //set localstorage for input instructions
+    //clear the localstorage for input instructions
+    localStorage.removeItem('inputInstructions');
+    localStorage.setItem('inputInstructions', this.inputInstructions);
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 
 
