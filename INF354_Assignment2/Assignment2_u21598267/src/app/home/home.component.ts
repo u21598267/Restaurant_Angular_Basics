@@ -18,6 +18,7 @@ export class HomeComponent {
   constructor(private orderFunction: ServiceNameService) {
     let restaurants = [
       {
+        "price": 200,
         "index" : 0,
         "imageurl" : "r1.jpg",
         "name": "de Albuquerque",
@@ -37,6 +38,7 @@ export class HomeComponent {
           "We look forward to welcoming you to our restaurant and sharing our passion for fine Portuguese cuisine with you.\n"
       },
       {
+        "price": 300,
         "index" : 1,
         "imageurl" : "r2.jpg",
         "name": "Chico's Champions Chicken",
@@ -56,6 +58,7 @@ export class HomeComponent {
           "We look forward to welcoming you to our restaurant and sharing our passion for fine Chinese cuisine with you."
       },
       {
+        "price": 100,
         "index" : 2,
         "imageurl" : "r3.jpg",
         "name": "New Retro",
@@ -76,6 +79,7 @@ export class HomeComponent {
       }
       ,
       {
+        "price": 100,
         "index" : 3,
         "imageurl" : "r4.jpg",
         "name": "Gusteau's",

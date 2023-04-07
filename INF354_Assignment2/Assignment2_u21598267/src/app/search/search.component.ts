@@ -22,13 +22,14 @@ export class SearchComponent {
   ngOnInit() {
   }
 
-  //create a function to handle the search on the localstorage variable restaurants
+  //This function is called when the search button is clicked
   searchRestaurants(searchValue: string) {
-    let restaurants = JSON.parse(localStorage.getItem('restaurants') ?? '[]');
-    let searchResults = restaurants.filter((restaurant: any) => {
-      return restaurant.name.toLowerCase().includes(searchValue.toLowerCase());
-    });
-    // create a function that creates a card for each restaurant in the search results
+    let restaurants = JSON.parse(localStorage.getItem('restaurants') ?? '[]'); //Retrieve restaurants from local storage
+
+    //Filter restaurants based on search value for: Name, Type of Food, Ratings and Price
+    let searchResults = restaurants.filter((restaurant: any) => {return restaurant.name == searchValue || restaurant.ethnicity == searchValue || restaurant.rating.toString() == searchValue || restaurant.price.toString() == searchValue}
+    );
+
     this.createCards(searchResults);
   }
 //This function creates cards for restaurants
