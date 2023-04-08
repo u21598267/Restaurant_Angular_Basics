@@ -26,13 +26,13 @@
 
 
   <div class="row container-fluid mb-2 w-100">
-    <button (click)="showInput = !showInput" class="btn btn-dark">Add Delivery Note</button>
-    <input *ngIf="showInput" [(ngModel)]="inputInstructions" type="text" placeholder="Any Instructions? We Will Try Our Best" class="ml-3" style="width: 80%">
+    <button (click)="showInstructionInput = !showInstructionInput" class="btn btn-dark">Add Delivery Note</button>
+    <input *ngIf="showInstructionInput" [(ngModel)]="inputInstructions" type="text" placeholder="Any Instructions? We Will Try Our Best" class="ml-3" style="width: 80%">
   </div>
 
   <div class="row container-fluid mb-2 w-100">
-    <button  class="btn btn-dark">Delivery Address</button>
-    <input  type="text" placeholder="Street number, street name" class="ml-3" style="width: 80%">
+    <button  class="btn btn-dark" (click)="showDeliveryInput = !showDeliveryInput">Delivery Address</button>
+    <input  *ngIf="showDeliveryInput" [(ngModel)]="inputDelivery" type="text" placeholder="Street number, street name" class="ml-3" style="width: 80%">
   </div>
 
 

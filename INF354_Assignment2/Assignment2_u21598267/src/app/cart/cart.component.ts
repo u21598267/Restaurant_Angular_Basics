@@ -8,9 +8,9 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  inputInstructions = '';
+
   totalPrice = 0;
-  showInput = false;
+
   constructor(private router: Router) {
     let orders = localStorage.getItem('orders');
     orders = JSON.parse(orders ?? '[]');
@@ -106,14 +106,23 @@ export class CartComponent {
   openModal() {
     this.showModal = true;
   //set localstorage for input instructions
-    //clear the localstorage for input instructions
+    //clear the localstorage for input instructions and delivery
     localStorage.removeItem('inputInstructions');
     localStorage.setItem('inputInstructions', this.inputInstructions);
+    localStorage.removeItem('inputDelivery');
+    localStorage.setItem('inputDelivery', this.inputDelivery);
   }
 
   closeModal() {
     this.showModal = false;
   }
+
+  //To show and hide inputs for Delivery & Instructions. Store input values
+  inputInstructions = '';
+  showInstructionInput = false;
+
+  inputDelivery = '';
+  showDeliveryInput = false;
 
 
 }

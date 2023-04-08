@@ -9,9 +9,11 @@
       </div>
       <div class="modal-body">
         <p><b>Delivery Instructions:</b> {{instructions}}</p>
+        <p><b>Delivery Address:</b> {{delivery}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">Pay</button>
+        <button (click)="toggleState()" [hidden]="!hideAnimation" class="btn btn-success">Confirm</button>
+        <div [@myAnimation]="state" [hidden]="hideAnimation" class="mr-5 card card-title bg-dark" style="color: aliceblue">Payment Successful!</div>
         <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="close.emit()">Close</button>
       </div>
     </div>
