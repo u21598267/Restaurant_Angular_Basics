@@ -11,6 +11,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { CartComponent } from './cart/cart.component';
 import { ModalComponent } from './modal/modal.component';
 import {FormsModule} from "@angular/forms";
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {FormsModule} from "@angular/forms";
     SearchComponent,
     CartComponent,
     ModalComponent,
+    AccountComponent,
   ],
     imports: [
         BrowserModule,

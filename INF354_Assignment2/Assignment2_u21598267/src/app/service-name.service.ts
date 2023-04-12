@@ -16,14 +16,15 @@ export class ServiceNameService {
     temp = JSON.parse(temp ?? '[]');
     let newV : any = [];
     for(let i = 0; i < temp.length; i++){
-      newV.push({"name":temp[i].name,"price":temp[i].price,"quantity":temp[i].quantity,"imageurl":temp[i].imageurl});
+      newV.push({"name":temp[i].name,"price":temp[i].price,"imageurl":temp[i].imageurl});
       }
     newV.push({"name":order.name,"price":order.price,"quantity":1,"imageurl":order.imageurl});
 
+
+
+
     //add newV to the localstorage variable and don't remove the old orders
     localStorage.setItem('orders',JSON.stringify(newV));
-
-    console.log(localStorage.getItem('orders'));
 
 
 

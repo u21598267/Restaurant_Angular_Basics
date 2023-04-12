@@ -28,8 +28,28 @@ delivery = localStorage.getItem('inputDelivery');
 //animation for payment
   state = 'inactive';
   hideAnimation = true;
+
   toggleState() {
+
     this.state = this.state === 'inactive' ? 'active' : 'inactive';
     this.hideAnimation = false ;
+
+    let currentOrders = JSON.parse(localStorage.getItem('orders') ?? '[]');
+
+    //group the order and store it in the localstorage
+    let orderHistory = JSON.parse(localStorage.getItem('orderHistory') ?? '[]');
+    orderHistory.push(currentOrders);
+    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+
+
+
+
+
+
+    //remove the orders from the localstorage to clear the cart
+    localStorage.removeItem('orders');
+
+
   }
 }
