@@ -19,8 +19,34 @@
   </div>
   <!-- end of image-grid row 1 -->
 
-  <!--create a bootstrap styled heading-->
+
   <h1 class="text-center mt-5">Cart</h1>
+
+  <!-- card for address -->
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+         <div class="row">
+
+           <div class="col-2">
+             <img src="assets/icons/home.svg" id="icons"/>
+           </div>
+
+           <div class="col-8">
+             <h1>Delivery Address</h1>
+             <p class="card-text text-secondary"> {{inputDelivery}}</p>
+           </div>
+
+           <div class="col-2 mt-5">
+             <button class="btn btn-outline-danger">Change</button>
+           </div>
+
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <app-modal *ngIf="showModal" (close)="closeModal()"></app-modal>
 

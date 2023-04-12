@@ -121,7 +121,7 @@ export class CartComponent {
   inputInstructions = '';
   showInstructionInput = false;
 
-  inputDelivery = '';
+  inputDelivery = '1060 Duxbury Road';
   showDeliveryInput = false;
 
 

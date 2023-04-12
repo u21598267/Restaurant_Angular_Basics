@@ -27,7 +27,13 @@ export class SearchComponent {
     let restaurants = JSON.parse(localStorage.getItem('restaurants') ?? '[]'); //Retrieve restaurants from local storage
 
     //Filter restaurants based on search value for: Name, Type of Food, Ratings and Price
-    let searchResults = restaurants.filter((restaurant: any) => {return restaurant.name == searchValue || restaurant.ethnicity == searchValue || restaurant.rating.toString() == searchValue || restaurant.price.toString() == searchValue}
+    let searchResults = restaurants.filter((restaurant: any) => {return (
+      restaurant.name == searchValue ||
+      restaurant.ethnicity == searchValue ||
+      restaurant.rating == searchValue ||
+      restaurant.price.toString() == searchValue ||
+      restaurant.distance == searchValue
+    );}
     );
 
     this.createCards(searchResults);
@@ -43,7 +49,7 @@ export class SearchComponent {
       card.classList.add('card');
       card.innerHTML = `
 
-      <div class="card-content">
+      <div class="card-content" >
       <div class="row">
       <div class="col-3">
         <div class="card-image">

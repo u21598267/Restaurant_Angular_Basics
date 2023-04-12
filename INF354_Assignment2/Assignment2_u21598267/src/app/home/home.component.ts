@@ -25,7 +25,7 @@ export class HomeComponent {
         "rating": 4,
         "ethnicity": "Portuguese",
         "timing_string" : "25 mins" ,
-        "distance" : "1.2 km",
+        "distance" : "12km",
         "deal" : "20% off",
         "about" :    "Welcome to our restaurant, where we offer an exceptional dining experience that combines the rich flavors of traditional Portuguese cuisine with a sophisticated, upmarket atmosphere. Our chefs use only the finest ingredients to create dishes that are both delicious and beautifully presented.\n" +
           "\n" +
@@ -45,7 +45,7 @@ export class HomeComponent {
         "rating": 5,
         "ethnicity": "Mexican",
         "timing_string" : "25 mins" ,
-        "distance" : "1.2 km",
+        "distance" : "11km",
         "deal" : "20% off",
         "about" :    "Welcome to our restaurant, where we offer an exquisite dining experience that combines the best of traditional Chinese cuisine with a modern, upmarket atmosphere. Our chefs use only the freshest ingredients to create dishes that are both delicious and visually stunning.\n" +
           "\n" +
@@ -65,7 +65,7 @@ export class HomeComponent {
         "rating": 3,
         "ethnicity": "Chinese",
         "timing_string" : "25 mins" ,
-        "distance" : "1.2 km",
+        "distance" : "10km",
         "deal" : "20% off",
         "about" :    "Welcome to our restaurant, where we offer an exquisite dining experience that combines the best of traditional Chinese cuisine with a modern, upmarket atmosphere. Our chefs use only the freshest ingredients to create dishes that are both delicious and visually stunning.\n" +
           "\n" +
@@ -86,7 +86,7 @@ export class HomeComponent {
         "rating": 4,
         "ethnicity": "Italian",
         "timing_string" : "12 mins" ,
-        "distance" : " 3 km",
+        "distance" :  "12km",
         "deal" : "Buy one capuccino, get one Huletts packet free",
         "about" :    "Welcome to our restaurant, where we offer an exquisite dining experience that combines the best of traditional Chinese cuisine with a modern, upmarket atmosphere. Our chefs use only the freshest ingredients to create dishes that are both delicious and visually stunning.\n" +
           "\n" +
