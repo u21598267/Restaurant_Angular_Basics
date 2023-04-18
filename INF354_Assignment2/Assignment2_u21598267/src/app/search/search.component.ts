@@ -1,48 +1,47 @@
 import { Component } from '@angular/core';
 //Add fontawesome imports for the search icon
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import {ServiceNameService} from "../service-name.service";
-
+import { ServiceNameService } from '../service-name.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-
   //Add fontawesome icon to the component
   faSearch = faSearch;
-//wrapper function for orderFunction
-  order(event : Event, restaurant: any){
-    ServiceNameService.orderFunction(event,restaurant);
-  }
-  constructor() { }
 
-  ngOnInit() {
+  //wrapper function for orderFunction
+  order(restaurant: any) {
+    ServiceNameService.orderFunction(restaurant);
   }
+
+  constructor() {}
+
+  ngOnInit() {}
 
   //This function is called when the search button is clicked
   searchRestaurants(searchValue: string) {
     let restaurants = JSON.parse(localStorage.getItem('restaurants') ?? '[]'); //Retrieve restaurants from local storage
 
     //Filter restaurants based on search value for: Name, Type of Food, Ratings and Price
-    let searchResults = restaurants.filter((restaurant: any) => {return (
-      restaurant.name == searchValue ||
-      restaurant.ethnicity == searchValue ||
-      restaurant.rating == searchValue ||
-      restaurant.price.toString() == searchValue ||
-      restaurant.distance == searchValue
-    );}
-    );
+    let searchResults = restaurants.filter((restaurant: any) => {
+      return (
+        restaurant.name == searchValue ||
+        restaurant.ethnicity == searchValue ||
+        restaurant.rating == searchValue ||
+        restaurant.price.toString() == searchValue ||
+        restaurant.distance == searchValue
+      );
+    });
 
     this.createCards(searchResults);
   }
-//This function creates cards for restaurants
+  //This function creates cards for restaurants
   createCards(restaurants: any) {
     let cards = document.getElementById('cards');
-    if (cards != null)
-    cards.innerHTML = '';
+    if (cards != null) cards.innerHTML = '';
 
     restaurants.forEach((restaurant: any) => {
       let card = document.createElement('div');
@@ -58,9 +57,15 @@ export class SearchComponent {
         <div class="card-title">
           <h3>${restaurant.name}</h3>
            <div class="row m-0">
-                <p class="" >
-                  <img src="assets/star_rating.png" alt="Responsive image" style="max-width: 15px;max-height: 15px"/>
-                </p>
+                <p class="" *ngFor="let i of [1, 2, 3, 4, 5]">
+                <img
+                  src="assets/star_rating.png"
+                  id="rating"
+                  *ngIf="i <= restaurant.rating"
+                  alt="Responsive image"
+                   style="max-width: 15px;max-height: 15px"
+                />
+              </p>
 
           </div>
         </div>
@@ -96,24 +101,13 @@ export class SearchComponent {
           </div>
       </div>
       `;
-      if (cards != null)
-
-      cards.appendChild(card);
+      if (cards != null) cards.appendChild(card);
 
       //create a button and add it to the card to order food
       let orderButton = card.querySelector('button');
-      orderButton?.addEventListener('click', (event: Event) => {
-        this.order(event, restaurant)
-
-      } );
+      orderButton?.addEventListener('click', () => {
+        this.order(restaurant);
+      });
     });
-
-
-
-
-
-
   }
-
-
 }

@@ -39,8 +39,9 @@
            </div>
 
            <div class="col-2 mt-5">
-             <button class="btn btn-outline-danger">Change</button>
+             <button  class="btn btn-dark" (click)="showDeliveryInput = !showDeliveryInput">Delivery Address</button>
            </div>
+           <input  *ngIf="showDeliveryInput" [(ngModel)]="inputDelivery" type="text" placeholder="Street number, street name" class="ml-3" style="width: 80%">
 
          </div>
         </div>
@@ -57,9 +58,8 @@
   </div>
 
   <div class="row container-fluid mb-2 w-100">
-    <button  class="btn btn-dark" (click)="showDeliveryInput = !showDeliveryInput">Delivery Address</button>
-    <input  *ngIf="showDeliveryInput" [(ngModel)]="inputDelivery" type="text" placeholder="Street number, street name" class="ml-3" style="width: 80%">
-  </div>
+
+   </div>
 
 
   <!-- create a bootstrap styled card for each value in orders making use of ngFor -->
