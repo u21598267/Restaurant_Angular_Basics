@@ -1,86 +1,87 @@
 <div class="container-fluid">
- <!-- grid row 1 -->
+  <!-- grid row 1 of food images -->
   <div class="row mt-2">
-
     <div class="col-3">
-        <img src="./assets/1.jpeg" class="img-fluid" alt="Responsive image"/>
+      <img src="./assets/1.jpeg" class="img-fluid" alt="Responsive image" />
     </div>
 
     <div class="col-3">
-      <img src="./assets/2.jpg" class="img-fluid" alt="Responsive image"/>
+      <img src="./assets/2.jpg" class="img-fluid" alt="Responsive image" />
     </div>
 
     <div class="col-3">
-      <img src="./assets/3.jpg" class="img-fluid" alt="Responsive image"/>
+      <img src="./assets/3.jpg" class="img-fluid" alt="Responsive image" />
     </div>
 
     <div class="col-3">
-      <img src="./assets/4.jpg" class="img-fluid" alt="Responsive image"/>
+      <img src="./assets/4.jpg" class="img-fluid" alt="Responsive image" />
     </div>
-
-
   </div>
   <!-- end of grid row 1 -->
 
-  <!-- create a full screen card -->
+  <!-- create a full screen card for Restaurants nearby title-->
   <div class="card mt-5">
     <div class="card-body">
       <h5 class="card-title"><b>Restaurants Nearby</b></h5>
       <p class="card-text text-secondary">Discover unique tastes near you.</p>
-
     </div>
   </div>
+  <!-- end of card -->
 
-<!-- Restuarant cards -->
+  <!-- Restaurant cards -->
   <div class="card w-100">
     <div class="card-body">
-
-
-      <div class="row mb-3" style="border-bottom: 0.5px solid grey"  *ngFor="let restaurant of restaurants " (click)="setRestaurant(restaurant.index)" >
-
-
-
+      <!-- iterate through all the restaurants to display them -->
+      <div
+        class="row mb-3"
+        style="border-bottom: 0.5px solid grey"
+        *ngFor="let restaurant of restaurants"
+      >
         <div class="col-sm-3">
-          <img src="./assets/{{restaurant.imageurl}}" alt="Responsive image" id="card-img-rest"/>
+          <img
+            src="./assets/{{ restaurant.imageurl }}"
+            alt="Responsive image"
+            id="card-img-rest"
+          />
         </div>
 
         <div class="col-sm-9">
-         <h3 class="card-title" >{{restaurant.name}}</h3>
+          <h3 class="card-title">{{ restaurant.name }}</h3>
           <h6 class="text-secondary">
-
-            {{restaurant.ethnicity}}
+            {{ restaurant.ethnicity }}
 
             <!-- :) man this was so much "fun" to align-->
-          <div class="row m-0">
-                <p class="" *ngFor="let i of [1,2,3,4,5]">
-                  <img src="assets/star_rating.png" id="rating" *ngIf="i <= restaurant.rating" alt="Responsive image" />
-                </p>
-
-          </div>
             <div class="row m-0">
-            {{restaurant.timing_string}}, <p style="color: #b92323"> {{restaurant.distance}} </p>
+              <p class="" *ngFor="let i of [1, 2, 3, 4, 5]">
+                <img
+                  src="assets/star_rating.png"
+                  id="rating"
+                  *ngIf="i <= restaurant.rating"
+                  alt="Responsive image"
+                />
+              </p>
+            </div>
+            <div class="row m-0">
+              {{ restaurant.timing_string }},
+              <p style="color: #b92323">{{ restaurant.distance }}</p>
             </div>
 
-            <div class="row m-0 " style="color: #7e7c7c">
-              R{{restaurant.price}} - {{restaurant.deal}}
+            <div class="row m-0" style="color: #7e7c7c">
+              {{ restaurant.price | currency }} - {{ restaurant.deal }}
             </div>
           </h6>
 
-
-          <div style="position:relative;" >
-            <button style="position:absolute; bottom: 68px; right:0;" class="btn btn-dark" (click)="order($event,restaurant)" >Order Now</button>
+          <div style="position: relative">
+            <button
+              style="position: absolute; bottom: 68px; right: 0"
+              class="btn btn-dark"
+              (click)="order(restaurant)"
+            >
+              Order Now
+            </button>
           </div>
-
         </div>
-
-
-
-
-
-</div>
+      </div>
+    </div>
   </div>
-
-
 </div>
-</div>
-

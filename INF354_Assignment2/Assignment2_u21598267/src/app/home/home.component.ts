@@ -11,14 +11,13 @@ import { ServiceNameService } from '../service-name.service';
 export class HomeComponent {
   //Get restuarants from local storage and parse them into an array
    restaurants = JSON.parse(localStorage.getItem('restaurants') ?? '[]');
-    elements = Array(5);
 
 
 
   constructor(private orderFunction: ServiceNameService) {
     let restaurants = [
       {
-        "price": 200,
+        "price": 50,
         "index" : 0,
         "imageurl" : "r1.jpg",
         "name": "de Albuquerque",
@@ -26,7 +25,7 @@ export class HomeComponent {
         "ethnicity": "Portuguese",
         "timing_string" : "25 mins" ,
         "distance" : "12km",
-        "deal" : "20% off",
+        "deal" : "R100 for 4",
         "about" :    "Welcome to our restaurant, where we offer an exceptional dining experience that combines the rich flavors of traditional Portuguese cuisine with a sophisticated, upmarket atmosphere. Our chefs use only the finest ingredients to create dishes that are both delicious and beautifully presented.\n" +
           "\n" +
           "Our menu features a wide variety of dishes, from classic favorites like Bacalhau à Brás and Cozido à Portuguesa to more contemporary creations like our signature Cataplana de Marisco. We also offer an extensive selection of vegetarian and gluten-free options to accommodate all dietary needs.\n" +
@@ -38,7 +37,7 @@ export class HomeComponent {
           "We look forward to welcoming you to our restaurant and sharing our passion for fine Portuguese cuisine with you.\n"
       },
       {
-        "price": 300,
+        "price": 150,
         "index" : 1,
         "imageurl" : "r2.jpg",
         "name": "Chico's Champions Chicken",
@@ -87,7 +86,7 @@ export class HomeComponent {
         "ethnicity": "Italian",
         "timing_string" : "12 mins" ,
         "distance" :  "12km",
-        "deal" : "Buy one capuccino, get one Huletts packet free",
+        "deal" : "Buy one capuccino, get one Huletts merch free",
         "about" :    "Welcome to our restaurant, where we offer an exquisite dining experience that combines the best of traditional Chinese cuisine with a modern, upmarket atmosphere. Our chefs use only the freshest ingredients to create dishes that are both delicious and visually stunning.\n" +
           "\n" +
           "Our menu features a wide variety of dishes, from classic favorites like Kung Pao Chicken and Moo Shu Pork to more contemporary creations like our signature Seafood Delight. We also offer an extensive selection of vegetarian and gluten-free options to accommodate all dietary needs.\n" +
@@ -104,24 +103,13 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-// Set item in local storage
-
-
 
   }
 
-  //set a localstorage variable to keep track of the current/last restaurant selected to pass to About component
-  setRestaurant(index : number) {
-    let restaurant = JSON.parse(localStorage.getItem('restaurants') ?? '[]');
-    restaurant = restaurant[index];
-    localStorage.setItem('aboutPage', JSON.stringify(restaurant));
-    //reload window to /about
-    window.location.href = "/about";
-  }
 
   //wrapper function for orderFunction
-  order(event : Event,restaurant : any){
-    ServiceNameService.orderFunction(event,restaurant);
+  order(restaurant : any){
+    ServiceNameService.orderFunction(restaurant);
   }
 
 

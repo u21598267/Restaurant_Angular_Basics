@@ -1,6 +1,6 @@
-<!--create a card that contains user name -->
+<!--user name -->
 <div class="card">
-  <!-- if the user is logged in, display the row with #ProfileSet -->
+  <!-- if the user is logged in; else  display the row with #noProfile -->
   <div class="card-body">
     <div class="row" *ngIf="userSet; else noProfile">
       <div class="col-10">
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary mt-3">Get Help</button>
+    <button class="btn btn-outline-primary mt-3" (click)="reOrder()">Reorder</button>
 
   </div>
 </div>
