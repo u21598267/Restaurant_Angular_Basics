@@ -1,4 +1,4 @@
-name: Angular CI ${{ github.actor }} is testing this
+name: Angular CI
 
 on: [push]
 
