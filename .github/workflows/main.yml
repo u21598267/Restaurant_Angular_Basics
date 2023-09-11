@@ -2,9 +2,10 @@ name: Angular CI
 
 on:
   push:
+    branches:
+      - main  # Only trigger on pushes to the main branch
 
 jobs:
-         
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +20,8 @@ jobs:
         run: npm install
       - name: Start the application
         working-directory: ./INF354_Assignment2/Assignment2_u21598267
-        run: (npm start && exit 0) || (./rollback.sh && exit 1)
+        run: |
+          (ng serve --prod --port 4200 & sleep 5; kill $!) || (./rollback.sh && exit 1)
+
 
 
