@@ -29,8 +29,10 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
+        working-directory: ./INF354_Assignment2/Assignment2_u21598267
         run: npm install
       - name: Start the application
+        working-directory: ./INF354_Assignment2/Assignment2_u21598267
         run: npm start || ./rollback.sh
 
 
