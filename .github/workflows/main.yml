@@ -29,7 +29,6 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        working-directory: ./WebApp
         run: npm install
       - name: Start the application
         run: npm start || ./rollback.sh
