@@ -21,7 +21,8 @@ jobs:
       - name: Start the application
         working-directory: ./INF354_Assignment2/Assignment2_u21598267
         run: |
-          (npm start --prod --port 4200 & sleep 5; kill $!) || (./rollback.sh && exit 1)
+          (npm start --prod --project Assignment2_u21598267 & sleep 5; kill $!) || (./rollback.sh && exit 1)
+
 
 
 
