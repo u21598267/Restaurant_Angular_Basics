@@ -32,7 +32,6 @@ jobs:
         working-directory: ./WebApp
         run: npm install
       - name: Start the application
-        working-directory: ./WebApp
         run: npm start || ./rollback.sh
 
 
