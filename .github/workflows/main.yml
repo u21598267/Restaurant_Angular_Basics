@@ -17,7 +17,10 @@ jobs:
           node-version: 18
       - name: Install dependencies
         working-directory: ./INF354_Assignment2/Assignment2_u21598267
-        run: npm install || chmod +x ./rollback.sh
+        run: |
+          npm install || true  # Ignore npm install failure
+          chmod +x ./rollback.sh  # Ensure execute permissions
+          ./rollback.sh  # Run the rollback script
       - name: Start the application
         working-directory: ./INF354_Assignment2/Assignment2_u21598267
         run: |
